@@ -15,3 +15,5 @@ id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 animal_name TEXT,
 species_id BIGINT REFERENCES species (id)
 );
+
+
