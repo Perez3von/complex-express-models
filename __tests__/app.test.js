@@ -24,6 +24,18 @@ describe('demo routes', () => {
 
 
   });
+
+  it('insert data to species table and return what it inserted', async () => {
+
+    const res =  await request(app).post('/animal').send({ name: 'Grreat white shark', species_id: 1 });
+    expect(res.body).toEqual({ id:1, name: 'Grreat white shark', species_id: 1 });
+
+
+  });
+
+
+
+
   it('Route to get all Species', async () => {
 
     const res =  await request(app).get('/species');
@@ -31,6 +43,8 @@ describe('demo routes', () => {
 
 
   });
+
+
 
   afterAll(() => {
     pool.end();
