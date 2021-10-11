@@ -12,7 +12,7 @@ const species_data = require('../lib/utils/speciesData.js');
 
 
 describe('demo routes', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     return setup(pool);
   });
 
@@ -21,6 +21,13 @@ describe('demo routes', () => {
 
     const res =  await request(app).post('/species').send({ species:'fish' });
     expect(res.body).toEqual({ id:1, species:'fish' });
+
+
+  });
+  it('Route to get all Species', async () => {
+
+    const res =  await request(app).get('/species');
+    expect(res.body).toEqual([{ id:expect.any(Number), species:expect.any(String) }]);
 
 
   });
