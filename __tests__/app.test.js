@@ -17,14 +17,10 @@ describe('demo routes', () => {
   });
 
 
-  it('insert data to species table and return what it inserted', () => {
+  it('insert data to species table and return what it inserted', async () => {
 
-    return request(app)
-      .post('/species')
-      .send(species_data)
-      .then((res) => {
-        expect(res.body).toEqual(species_data);
-      });
+    const res =  await request(app).post('/species').send({ species:'fish' });
+    expect(res.body).toEqual({ id:1, species:'fish' });
 
 
   });
