@@ -58,6 +58,13 @@ describe('demo routes', () => {
 
 
   });
+  it('Route to update animal', async () => {
+
+    const res =  await request(app).put('/animal').send({ id:1, name: 'NOT so Grreat white shark', species_id: 1 });
+    expect(res.body).toEqual({ id:1, name: 'NOT so Grreat white shark', species_id: 1 });
+
+
+  });
 
 
   afterAll(() => {
