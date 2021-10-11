@@ -43,7 +43,13 @@ describe('demo routes', () => {
 
 
   });
+  it('Route to get all animals', async () => {
 
+    const res =  await request(app).get('/animal');
+    expect(res.body).toEqual([{ id:expect.any(Number), species_id:expect.any(Number), name:expect.any(String) }]);
+
+
+  });
 
 
   afterAll(() => {
