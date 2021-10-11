@@ -65,6 +65,17 @@ describe('demo routes', () => {
 
 
   });
+  it('Route to get count of animals by species', async () => {
+
+    const res =  await request(app).get('/animal/species/count');
+    expect(res.body).toEqual([{ number_of_animals:expect.any(Number), species_name:expect.any(String) }]);
+
+
+  });
+
+
+
+
   it('Route to delete animal', async () => {
 
     const res =  await request(app).delete('/animal').send({ id:1 });
