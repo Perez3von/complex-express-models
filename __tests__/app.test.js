@@ -51,6 +51,14 @@ describe('demo routes', () => {
 
   });
 
+  it('Route to get all animals with species info', async () => {
+
+    const res =  await request(app).get('/animal/species');
+    expect(res.body).toEqual([{ animal_id:expect.any(Number), species:expect.any(String), name:expect.any(String) }]);
+
+
+  });
+
 
   afterAll(() => {
     pool.end();
