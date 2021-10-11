@@ -7,8 +7,6 @@ const setup = require('../data/setup.js');
 const request = require('supertest'); 
 const app = require('../lib/app.js');
 
-const species_data = require('../lib/utils/speciesData.js');
-
 
 
 describe('demo routes', () => {
@@ -72,8 +70,6 @@ describe('demo routes', () => {
 
 
   });
-
-
 
 
   it('Route to delete animal', async () => {
